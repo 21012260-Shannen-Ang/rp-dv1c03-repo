@@ -1,13 +1,48 @@
 pipeline {
   
-agent { 
-    node { 
-        label 'master' 
+    agent { 
+        node { 
+            label 'master' 
+        } 
     } 
-} 
- 
-tools {  
-    maven 'maven3'  
-} 
-
+     
+    tools {  
+        maven 'maven3'  
+    } 
+    
+    stages{
+    
+      stage('ST1-9111225B') {
+    
+      }
+    
+      stage('ST2-9111225B') {
+    
+      }
+    
+      stage('ST3-Parallel-9111225B') {
+        parallel {
+          stage('ST3a-9111225B') {
+    
+          }
+    
+          stage('ST3b-9111225B') {
+    
+          }
+        }
+      }
+    
+      stage('ST4-9111225B') {
+    
+      }
+    
+      stage('ST5-9111225B') {
+    
+      }
+    
+      stage('ST6-9111225B') {
+    
+      }
+    
+    }
 }
