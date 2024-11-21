@@ -14,32 +14,32 @@ pipeline {
     
       stage('ST1-9111225B') {
           steps {
-              echo “ST1-9111225B: Setup Release Environment Completed.”
+              echo "ST1-9111225B: Setup Release Environment Completed."
           }
       }
     
       stage('ST2-9111225B') {
           steps {
-              echo “ST2-9111225B: Server Setup Completed.”
+              echo "ST2-9111225B: Server Setup Completed."
           }
       }
     
       stage('ST3-Parallel-9111225B') {
         steps {
-            echo “ST3 Parallel-9111225B-: Security Testing”​ 
+            echo "ST3 Parallel-9111225B-: Security Testing"
 
         }
 
         parallel {
           stage('ST3a-9111225B') {
               steps {
-                 echo “ST3A-9111225B: X-Site Scripting (XSS) Test Completed and Report Generated”​
+                 echo "ST3A-9111225B: X-Site Scripting (XSS) Test Completed and Report Generated"
               }
           }
     
           stage('ST3b-9111225B') {
               steps {
-                 echo “ST3B-9111225B: SQL injection (SQLI) Test Completed and Report Generated”​
+                 echo "ST3B-9111225B: SQL injection (SQLI) Test Completed and Report Generated"
               }
           }
         }
@@ -47,22 +47,22 @@ pipeline {
     
       stage('ST4-9111225B') {
           steps {
-              echo “ST4-9111225B : Security reports are checked”​
+              echo "ST4-9111225B : Security reports are checked"
           }
       }
     
       stage('ST5-9111225B') {
           steps {
               script {
-                   input message: “Hello 9111225B, permission to proceed to next phase?”​, ok:'Proceed'
+                   input message: "Hello 9111225B, permission to proceed to next phase?"​, ok:'Proceed'
               }
-              echo “ST5-9111225B : Approve to proceed to next phase”
+              echo "ST5-9111225B : Approve to proceed to next phase"
           }
       }
     
       stage('ST6-9111225B') {
           steps {
-              echo “ST6-9111225B : Ready for next phase”​
+              echo "ST6-9111225B : Ready for next phase"
           }
       }
     
