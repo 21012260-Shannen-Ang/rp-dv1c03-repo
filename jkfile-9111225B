@@ -24,7 +24,7 @@ pipeline {
           }
       }
     
-      stage('ST3') {
+      stage('ST3 Parallel-9111225B-') {
           steps {
                 // First echo before parallel execution
                 echo "ST3 Parallel-9111225B: Security Testing"
