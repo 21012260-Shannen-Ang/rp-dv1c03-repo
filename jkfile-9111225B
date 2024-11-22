@@ -32,10 +32,10 @@ pipeline {
                 // Parallel block
                 script {
                     parallel (
-                        "ST3a-9111225B": {
+                        "ST3A-9111225B": {
                             echo "ST3A-9111225B: X-Site Scripting (XSS) Test Completed and Report Generated"
                         },
-                        "ST3b-9111225B": {
+                        "ST3B-9111225B": {
                             echo "ST3B-9111225B: SQL injection (SQLI) Test Completed and Report Generated"
                         }
                     )
