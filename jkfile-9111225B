@@ -25,22 +25,19 @@ pipeline {
       }
     
       stage('ST3 Parallel-9111225B-') {
-          steps {
-                // First echo before parallel execution
-                echo "ST3 Parallel-9111225B: Security Testing"
-                
-                // Parallel block
-                script {
-                    parallel (
-                        "ST3A-9111225B": {
-                            echo "ST3A-9111225B: X-Site Scripting (XSS) Test Completed and Report Generated"
-                        },
-                        "ST3B-9111225B": {
-                            echo "ST3B-9111225B: SQL injection (SQLI) Test Completed and Report Generated"
-                        }
-                    )
+         parallel {
+              stage('ST3A-9111225B') {
+                steps {
+                    echo "ST3A-9111225B: X-Site Scripting (XSS) Test Completed and Report Generated"
                 }
-            }
+              }
+
+              stage('ST3B-9111225B') {
+                steps {
+                    echo "ST3B-9111225B: SQL injection (SQLI) Test Completed and Report Generated"
+                }
+              }
+         }
       }
     
       stage('ST4-9111225B') {
