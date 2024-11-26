@@ -21,6 +21,21 @@ pipeline {
       stage('ST2-9111225B') {
           steps {
               echo "ST2-9111225B: Server Setup Completed."
+
+              // Stop existing container before removing
+              sh 'docker stop svr-9111225B'
+
+              // Remove existing container
+              sh 'docker rm svr-9111225B'
+
+              // Create container
+              sh 'docker run -d -it -p 32900:80 --name svr-9111225B img-base-9111225b /bin/bash'
+
+              // Go into running container
+              sh 'docker exec -it svr-9111225B /bin/bash'
+
+              // Start apache2 service inside container
+              sh 'service apache2 start' 
           }
       }
     
