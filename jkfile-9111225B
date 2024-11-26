@@ -31,11 +31,8 @@ pipeline {
               // Create container
               sh 'docker run -d -it -p 32900:80 --name svr-9111225B img-base-9111225b /bin/bash'
 
-              // Go into running container
-              sh 'docker exec -it svr-9111225B /bin/bash'
-
-              // Start apache2 service inside container
-              sh 'service apache2 start' 
+              // Go into running container & Start apache2 service inside container
+              sh 'docker exec svr-9111225B /bin/bash -c "service apache2 start"'
           }
       }
     
